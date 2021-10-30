@@ -29,7 +29,9 @@ public class WordUI : MonoBehaviour
     {
         foreach (char letter in wordGenerator.randomWord)
         {
-            GameObject a = Instantiate(playerLetterBox);
+            //GameObject a = Instantiate(playerLetterBox);
+            GameObject a = ObjectPool.sharedInstance.GetPooledObject();
+            a.SetActive(true);
             a.transform.SetParent(playerPanel);
             a.GetComponentInChildren<TextMeshProUGUI>().text = letter.ToString();
             playerLetters.Add(a);
@@ -44,7 +46,9 @@ public class WordUI : MonoBehaviour
     {
         foreach (char letter in wordGenerator.randomWord)
         {
-            GameObject a = Instantiate(enemyLetterBox);
+            //GameObject a = Instantiate(enemyLetterBox);
+            GameObject a = ObjectPool.sharedInstance.GetPooledObject();
+            a.SetActive(true);
             a.transform.SetParent(enemyPanel);
             a.GetComponentInChildren<TextMeshProUGUI>().text = letter.ToString();
             enemyLetters.Add(a);

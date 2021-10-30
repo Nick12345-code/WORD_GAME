@@ -8,10 +8,9 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] GameObject objectToPool;
     [SerializeField] int amountToPool;
 
-    void Awake() => sharedInstance = this;
-
-    void Start()
+    void Awake()
     {
+        sharedInstance = this;
         pooledObjects = new List<GameObject>();
         GameObject temp;
         for (int i = 0; i < amountToPool; i++)
